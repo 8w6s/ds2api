@@ -2,7 +2,7 @@ package client
 
 import (
 	"context"
-	dsprotocol "ds2api/internal/deepseek/protocol"
+	dsprotocol "neutronapi/internal/deepseek/protocol"
 	"fmt"
 	"net"
 	"net/http"
@@ -12,9 +12,9 @@ import (
 
 	"golang.org/x/net/proxy"
 
-	"ds2api/internal/auth"
-	"ds2api/internal/config"
-	trans "ds2api/internal/deepseek/transport"
+	"neutronapi/internal/auth"
+	"neutronapi/internal/config"
+	trans "neutronapi/internal/deepseek/transport"
 )
 
 type requestClients struct {

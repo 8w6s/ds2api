@@ -1,8 +1,8 @@
 package devcapture
 
 import (
-	"ds2api/internal/chathistory"
-	adminshared "ds2api/internal/httpapi/admin/shared"
+	"neutronapi/internal/chathistory"
+	adminshared "neutronapi/internal/httpapi/admin/shared"
 )
 
 type Handler struct {

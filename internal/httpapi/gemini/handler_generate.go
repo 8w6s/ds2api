@@ -12,17 +12,17 @@ import (
 
 	"github.com/go-chi/chi/v5"
 
-	"ds2api/internal/assistantturn"
-	"ds2api/internal/auth"
-	"ds2api/internal/completionruntime"
-	"ds2api/internal/httpapi/openai/history"
-	"ds2api/internal/httpapi/requestbody"
-	"ds2api/internal/promptcompat"
-	"ds2api/internal/responsehistory"
-	"ds2api/internal/sse"
-	"ds2api/internal/toolcall"
-	"ds2api/internal/translatorcliproxy"
-	"ds2api/internal/util"
+	"neutronapi/internal/assistantturn"
+	"neutronapi/internal/auth"
+	"neutronapi/internal/completionruntime"
+	"neutronapi/internal/httpapi/openai/history"
+	"neutronapi/internal/httpapi/requestbody"
+	"neutronapi/internal/promptcompat"
+	"neutronapi/internal/responsehistory"
+	"neutronapi/internal/sse"
+	"neutronapi/internal/toolcall"
+	"neutronapi/internal/translatorcliproxy"
+	"neutronapi/internal/util"
 
 	sdktranslator "github.com/router-for-me/CLIProxyAPI/v6/sdk/translator"
 )

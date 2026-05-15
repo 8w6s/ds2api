@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"ds2api/internal/config"
-	"ds2api/internal/prompt"
+	"neutronapi/internal/config"
+	"neutronapi/internal/prompt"
 )
 
 func normalizeResponsesInputItem(m map[string]any) map[string]any {

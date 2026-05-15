@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"ds2api/internal/config"
+	"neutronapi/internal/config"
 )
 
 func boolFrom(v any) bool {

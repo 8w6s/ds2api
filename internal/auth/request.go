@@ -10,8 +10,8 @@ import (
 	"sync"
 	"time"
 
-	"ds2api/internal/account"
-	"ds2api/internal/config"
+	"neutronapi/internal/account"
+	"neutronapi/internal/config"
 )
 
 type ctxKey string

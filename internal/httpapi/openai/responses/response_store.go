@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"ds2api/internal/auth"
+	"neutronapi/internal/auth"
 )
 
 type storedResponse struct {

@@ -4,7 +4,7 @@ import (
 	"regexp"
 	"strings"
 
-	"ds2api/internal/toolcall"
+	"neutronapi/internal/toolcall"
 )
 
 var emptyJSONFencePattern = regexp.MustCompile("(?is)```json\\s*```")

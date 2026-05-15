@@ -6,12 +6,12 @@ import (
 	"strings"
 	"time"
 
-	"ds2api/internal/assistantturn"
-	"ds2api/internal/auth"
-	"ds2api/internal/chathistory"
-	"ds2api/internal/config"
-	"ds2api/internal/prompt"
-	"ds2api/internal/promptcompat"
+	"neutronapi/internal/assistantturn"
+	"neutronapi/internal/auth"
+	"neutronapi/internal/chathistory"
+	"neutronapi/internal/config"
+	"neutronapi/internal/prompt"
+	"neutronapi/internal/promptcompat"
 )
 
 type Session struct {

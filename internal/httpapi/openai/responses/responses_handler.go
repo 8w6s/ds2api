@@ -1,7 +1,7 @@
 package responses
 
 import (
-	"ds2api/internal/toolcall"
+	"neutronapi/internal/toolcall"
 	"encoding/json"
 	"io"
 	"net/http"
@@ -11,16 +11,16 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/google/uuid"
 
-	"ds2api/internal/assistantturn"
-	"ds2api/internal/auth"
-	"ds2api/internal/completionruntime"
-	"ds2api/internal/config"
-	dsprotocol "ds2api/internal/deepseek/protocol"
-	openaifmt "ds2api/internal/format/openai"
-	"ds2api/internal/promptcompat"
-	"ds2api/internal/responsehistory"
-	"ds2api/internal/sse"
-	streamengine "ds2api/internal/stream"
+	"neutronapi/internal/assistantturn"
+	"neutronapi/internal/auth"
+	"neutronapi/internal/completionruntime"
+	"neutronapi/internal/config"
+	dsprotocol "neutronapi/internal/deepseek/protocol"
+	openaifmt "neutronapi/internal/format/openai"
+	"neutronapi/internal/promptcompat"
+	"neutronapi/internal/responsehistory"
+	"neutronapi/internal/sse"
+	streamengine "neutronapi/internal/stream"
 )
 
 func (h *Handler) GetResponseByID(w http.ResponseWriter, r *http.Request) {

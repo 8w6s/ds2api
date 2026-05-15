@@ -1,6 +1,6 @@
-# DS2API Architecture and Project Structure
+# NeutronAPI Architecture and Project Structure
 
-This document maintains the canonical directory structure, module boundaries, and primary execution paths for the DS2API project.
+This document maintains the canonical directory structure, module boundaries, and primary execution paths for the NeutronAPI project.
 
 ## 1. Top-level Directory Structure
 
@@ -9,7 +9,7 @@ This document maintains the canonical directory structure, module boundaries, an
 | `.github/` | CI/CD workflows and issue templates |
 | `api/` | Serverless entry points (Vercel Go/Node) |
 | `app/` | Application-level handler assembly |
-| `cmd/` | Executable entry points (`ds2api`, `ds2api-tests`) |
+| `cmd/` | Executable entry points (`neutronapi`, `neutronapi-tests`) |
 | `docs/` | Project documentation |
 | `internal/` | Core implementation (private) |
 | `pow/` | DeepSeek Proof-of-Work (PoW) implementation |

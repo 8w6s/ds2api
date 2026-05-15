@@ -62,7 +62,7 @@ formatters:
   settings:
     goimports:
       local-prefixes:
-        - ds2api
+        - neutronapi
   exclusions:
     generated: lax
     paths:

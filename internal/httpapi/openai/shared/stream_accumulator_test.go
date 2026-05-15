@@ -3,7 +3,7 @@ package shared
 import (
 	"testing"
 
-	"ds2api/internal/sse"
+	"neutronapi/internal/sse"
 )
 
 func TestStreamAccumulatorAppliesThinkingAndTextDedupe(t *testing.T) {

@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"ds2api/internal/httpapi/openai/embeddings"
-	"ds2api/internal/promptcompat"
+	"neutronapi/internal/httpapi/openai/embeddings"
+	"neutronapi/internal/promptcompat"
 )
 
 func TestNormalizeResponsesInputAsMessagesString(t *testing.T) {

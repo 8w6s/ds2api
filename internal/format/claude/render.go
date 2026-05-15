@@ -1,13 +1,13 @@
 package claude
 
 import (
-	"ds2api/internal/assistantturn"
-	"ds2api/internal/toolcall"
+	"neutronapi/internal/assistantturn"
+	"neutronapi/internal/toolcall"
 	"fmt"
 	"time"
 
-	"ds2api/internal/prompt"
-	"ds2api/internal/util"
+	"neutronapi/internal/prompt"
+	"neutronapi/internal/util"
 )
 
 func BuildMessageResponseFromTurn(messageID, model string, turn assistantturn.Turn, exposeThinking bool) map[string]any {

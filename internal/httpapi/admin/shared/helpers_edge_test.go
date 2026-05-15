@@ -5,7 +5,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"ds2api/internal/config"
+	"neutronapi/internal/config"
 )
 
 // ─── reverseAccounts ─────────────────────────────────────────────────

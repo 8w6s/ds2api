@@ -1,5 +1,5 @@
 {
-    "name": "ds2api-admin",
+    "name": "neutronapi-admin",
     "private": true,
     "version": "1.0.0",
     "type": "module",

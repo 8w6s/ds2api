@@ -1,8 +1,8 @@
 package assistantturn
 
 import (
-	"ds2api/internal/httpapi/openai/shared"
-	"ds2api/internal/sse"
+	"neutronapi/internal/httpapi/openai/shared"
+	"neutronapi/internal/sse"
 )
 
 type StreamEventType string

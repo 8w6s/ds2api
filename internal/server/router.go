@@ -15,22 +15,22 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 
-	"ds2api/internal/account"
-	"ds2api/internal/auth"
-	"ds2api/internal/chathistory"
-	"ds2api/internal/config"
-	dsclient "ds2api/internal/deepseek/client"
-	"ds2api/internal/httpapi/admin"
-	"ds2api/internal/httpapi/claude"
-	"ds2api/internal/httpapi/gemini"
-	"ds2api/internal/httpapi/ollama"
-	"ds2api/internal/httpapi/openai/chat"
-	"ds2api/internal/httpapi/openai/embeddings"
-	"ds2api/internal/httpapi/openai/files"
-	"ds2api/internal/httpapi/openai/responses"
-	"ds2api/internal/httpapi/openai/shared"
-	"ds2api/internal/httpapi/requestbody"
-	"ds2api/internal/webui"
+	"neutronapi/internal/account"
+	"neutronapi/internal/auth"
+	"neutronapi/internal/chathistory"
+	"neutronapi/internal/config"
+	dsclient "neutronapi/internal/deepseek/client"
+	"neutronapi/internal/httpapi/admin"
+	"neutronapi/internal/httpapi/claude"
+	"neutronapi/internal/httpapi/gemini"
+	"neutronapi/internal/httpapi/ollama"
+	"neutronapi/internal/httpapi/openai/chat"
+	"neutronapi/internal/httpapi/openai/embeddings"
+	"neutronapi/internal/httpapi/openai/files"
+	"neutronapi/internal/httpapi/openai/responses"
+	"neutronapi/internal/httpapi/openai/shared"
+	"neutronapi/internal/httpapi/requestbody"
+	"neutronapi/internal/webui"
 )
 
 type App struct {
@@ -104,7 +104,7 @@ func NewApp() (*App, error) {
 	r.Post("/v1/files", filesHandler.UploadFile)
 	r.Get("/v1/files/{file_id}", filesHandler.RetrieveFile)
 	r.Post("/v1/embeddings", embeddingsHandler.Embeddings)
-	// Root OpenAI aliases support clients configured with the bare DS2API service URL.
+	// Root OpenAI aliases support clients configured with the bare NeutronAPI service URL.
 	r.Get("/models", modelsHandler.ListModels)
 	r.Get("/models/{model_id}", modelsHandler.GetModel)
 	r.Post("/chat/completions", chatHandler.ChatCompletions)

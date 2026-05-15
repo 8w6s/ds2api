@@ -5,8 +5,8 @@ import (
 	"strings"
 	"testing"
 
-	"ds2api/internal/toolcall"
-	"ds2api/internal/util"
+	"neutronapi/internal/toolcall"
+	"neutronapi/internal/util"
 )
 
 func TestBuildResponseObjectKeepsFencedToolPayloadAsText(t *testing.T) {

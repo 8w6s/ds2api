@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"ds2api/internal/util"
+	"neutronapi/internal/util"
 )
 
 func (s *claudeStreamRuntime) send(event string, v any) {

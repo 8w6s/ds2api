@@ -11,11 +11,11 @@ import (
 	"sort"
 	"strings"
 
-	"ds2api/internal/config"
-	"ds2api/internal/devcapture"
-	adminshared "ds2api/internal/httpapi/admin/shared"
-	"ds2api/internal/rawsample"
-	"ds2api/internal/util"
+	"neutronapi/internal/config"
+	"neutronapi/internal/devcapture"
+	adminshared "neutronapi/internal/httpapi/admin/shared"
+	"neutronapi/internal/rawsample"
+	"neutronapi/internal/util"
 )
 
 type captureChain struct {

@@ -4,7 +4,7 @@ import (
 	"sort"
 	"sync"
 
-	"ds2api/internal/config"
+	"neutronapi/internal/config"
 )
 
 type Pool struct {

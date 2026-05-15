@@ -6,12 +6,12 @@ import (
 	"strings"
 	"time"
 
-	"ds2api/internal/auth"
-	"ds2api/internal/chathistory"
-	"ds2api/internal/config"
-	openaifmt "ds2api/internal/format/openai"
-	"ds2api/internal/prompt"
-	"ds2api/internal/promptcompat"
+	"neutronapi/internal/auth"
+	"neutronapi/internal/chathistory"
+	"neutronapi/internal/config"
+	openaifmt "neutronapi/internal/format/openai"
+	"neutronapi/internal/prompt"
+	"neutronapi/internal/promptcompat"
 )
 
 type chatHistorySession struct {

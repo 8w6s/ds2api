@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strings"
 
-	"ds2api/internal/config"
+	"neutronapi/internal/config"
 )
 
 func (h *Handler) configImport(w http.ResponseWriter, r *http.Request) {

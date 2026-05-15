@@ -3,7 +3,7 @@ package account
 import (
 	"context"
 
-	"ds2api/internal/config"
+	"neutronapi/internal/config"
 )
 
 func (p *Pool) Acquire(target string, exclude map[string]bool) (config.Account, bool) {

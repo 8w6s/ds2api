@@ -1,4 +1,4 @@
-# DS2API 开发者速查
+# NeutronAPI 开发者速查
 
 语言 / Language: 中文
 
@@ -10,7 +10,7 @@
 
 ```bash
 # 后端
-go run ./cmd/ds2api
+go run ./cmd/neutronapi
 
 # WebUI 开发服务器
 npm run dev --prefix webui

@@ -12,8 +12,8 @@ import (
 
 	"github.com/go-chi/chi/v5"
 
-	"ds2api/internal/auth"
-	dsclient "ds2api/internal/deepseek/client"
+	"neutronapi/internal/auth"
+	dsclient "neutronapi/internal/deepseek/client"
 )
 
 type inlineUploadDSStub struct {
@@ -292,7 +292,7 @@ func TestResponsesInlineUploadFailureReturnsInternalServerError(t *testing.T) {
 
 func TestVercelPrepareUploadsInlineFilesBeforeLeasePayload(t *testing.T) {
 	t.Setenv("VERCEL", "1")
-	t.Setenv("DS2API_VERCEL_INTERNAL_SECRET", "stream-secret")
+	t.Setenv("NEUTRON_VERCEL_INTERNAL_SECRET", "stream-secret")
 	ds := &inlineUploadDSStub{}
 	h := &openAITestSurface{Store: mockOpenAIConfig{}, Auth: streamStatusAuthStub{}, DS: ds}
 	r := chi.NewRouter()

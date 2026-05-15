@@ -6,7 +6,7 @@ import (
 	"regexp"
 	"strings"
 
-	dsprotocol "ds2api/internal/deepseek/protocol"
+	dsprotocol "neutronapi/internal/deepseek/protocol"
 )
 
 type ContentPart struct {

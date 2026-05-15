@@ -3,7 +3,7 @@ package shared
 import (
 	"strings"
 
-	"ds2api/internal/toolcall"
+	"neutronapi/internal/toolcall"
 )
 
 func DetectAssistantToolCalls(rawText, visibleText, exposedThinking, detectionThinking string, toolNames []string) toolcall.ToolCallParseResult {

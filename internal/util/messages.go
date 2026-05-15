@@ -1,9 +1,9 @@
 package util
 
 import (
-	"ds2api/internal/claudeconv"
-	"ds2api/internal/config"
-	"ds2api/internal/prompt"
+	"neutronapi/internal/claudeconv"
+	"neutronapi/internal/config"
+	"neutronapi/internal/prompt"
 )
 
 const ClaudeDefaultModel = "claude-sonnet-4-6"

@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	authn "ds2api/internal/auth"
+	authn "neutronapi/internal/auth"
 )
 
 func (h *Handler) requireAdmin(next http.Handler) http.Handler {

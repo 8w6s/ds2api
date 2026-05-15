@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"ds2api/internal/config"
+	"neutronapi/internal/config"
 )
 
 func TestToAccountMissingFieldsRemainEmpty(t *testing.T) {

@@ -6,13 +6,13 @@ import (
 	"strings"
 	"time"
 
-	"ds2api/internal/auth"
-	"ds2api/internal/completionruntime"
-	"ds2api/internal/config"
-	dsprotocol "ds2api/internal/deepseek/protocol"
-	"ds2api/internal/promptcompat"
-	"ds2api/internal/responsehistory"
-	streamengine "ds2api/internal/stream"
+	"neutronapi/internal/auth"
+	"neutronapi/internal/completionruntime"
+	"neutronapi/internal/config"
+	dsprotocol "neutronapi/internal/deepseek/protocol"
+	"neutronapi/internal/promptcompat"
+	"neutronapi/internal/responsehistory"
+	streamengine "neutronapi/internal/stream"
 )
 
 func (h *Handler) handleResponsesStreamWithRetry(w http.ResponseWriter, r *http.Request, a *auth.RequestAuth, resp *http.Response, payload map[string]any, pow, owner, responseID string, stdReq promptcompat.StandardRequest, model, finalPrompt string, refFileTokens int, thinkingEnabled, searchEnabled bool, toolNames []string, toolsRaw any, toolChoice promptcompat.ToolChoicePolicy, traceID string, historySession *responsehistory.Session) {

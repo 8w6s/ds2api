@@ -1,7 +1,7 @@
 package gemini
 
 import (
-	"ds2api/internal/promptcompat"
+	"neutronapi/internal/promptcompat"
 	"strings"
 	"testing"
 )

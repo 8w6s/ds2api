@@ -6,10 +6,10 @@ import (
 	"strings"
 	"time"
 
-	"ds2api/internal/version"
+	"neutronapi/internal/version"
 )
 
-const latestReleaseAPI = "https://api.github.com/repos/CJackHwang/ds2api/releases/latest"
+const latestReleaseAPI = "https://api.github.com/repos/NeutronAPI Team/neutronapi/releases/latest"
 
 type latestReleasePayload struct {
 	TagName     string `json:"tag_name"`
@@ -34,7 +34,7 @@ func (h *Handler) getVersion(w http.ResponseWriter, _ *http.Request) {
 		return
 	}
 	req.Header.Set("Accept", "application/vnd.github+json")
-	req.Header.Set("User-Agent", "ds2api-version-check")
+	req.Header.Set("User-Agent", "neutronapi-version-check")
 
 	client := &http.Client{Timeout: 4 * time.Second}
 	r, err := client.Do(req)

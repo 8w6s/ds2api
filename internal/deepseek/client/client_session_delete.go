@@ -2,13 +2,13 @@ package client
 
 import (
 	"context"
-	dsprotocol "ds2api/internal/deepseek/protocol"
+	dsprotocol "neutronapi/internal/deepseek/protocol"
 	"errors"
 	"fmt"
 	"net/http"
 
-	"ds2api/internal/auth"
-	"ds2api/internal/config"
+	"neutronapi/internal/auth"
+	"neutronapi/internal/config"
 )
 
 // DeleteSessionResult 删除会话结果
@@ -38,7 +38,7 @@ func (c *Client) DeleteSession(ctx context.Context, a *auth.RequestAuth, session
 	refreshed := false
 
 	for attempts < maxAttempts {
-		headers := c.authHeaders(a.DeepSeekToken)
+		headers := c.authHeaders(a)
 
 		payload := map[string]any{
 			"chat_session_id": sessionID,
@@ -93,7 +93,7 @@ func (c *Client) DeleteSessionForToken(ctx context.Context, token string, sessio
 		return result, errors.New(result.ErrorMessage)
 	}
 
-	headers := c.authHeaders(token)
+	headers := c.authHeaders(&auth.RequestAuth{DeepSeekToken: token})
 	payload := map[string]any{
 		"chat_session_id": sessionID,
 	}
@@ -118,7 +118,7 @@ func (c *Client) DeleteSessionForToken(ctx context.Context, token string, sessio
 // DeleteAllSessions 删除所有会话（谨慎使用）
 func (c *Client) DeleteAllSessions(ctx context.Context, a *auth.RequestAuth) error {
 	clients := c.requestClientsForAuth(ctx, a)
-	headers := c.authHeaders(a.DeepSeekToken)
+	headers := c.authHeaders(a)
 	payload := map[string]any{}
 
 	resp, status, err := c.postJSONWithStatus(ctx, clients.regular, clients.fallback, dsprotocol.DeepSeekDeleteAllSessionsURL, headers, payload)
@@ -140,7 +140,7 @@ func (c *Client) DeleteAllSessions(ctx context.Context, a *auth.RequestAuth) err
 // DeleteAllSessionsForToken 直接使用 token 删除所有会话（直通模式）
 func (c *Client) DeleteAllSessionsForToken(ctx context.Context, token string) error {
 	clients := c.requestClientsFromContext(ctx)
-	headers := c.authHeaders(token)
+	headers := c.authHeaders(&auth.RequestAuth{DeepSeekToken: token})
 	payload := map[string]any{}
 
 	resp, status, err := c.postJSONWithStatus(ctx, clients.regular, clients.fallback, dsprotocol.DeepSeekDeleteAllSessionsURL, headers, payload)

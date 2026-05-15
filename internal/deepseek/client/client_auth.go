@@ -2,15 +2,16 @@ package client
 
 import (
 	"context"
-	dsprotocol "ds2api/internal/deepseek/protocol"
-	"errors"
+	"crypto/sha256"
+	"encoding/hex"
 	"fmt"
 	"net/http"
 	"strings"
 	"unicode"
 
-	"ds2api/internal/auth"
-	"ds2api/internal/config"
+	"neutronapi/internal/auth"
+	"neutronapi/internal/config"
+	dsprotocol "neutronapi/internal/deepseek/protocol"
 )
 
 func (c *Client) Login(ctx context.Context, acc config.Account) (string, error) {
@@ -29,9 +30,10 @@ func (c *Client) Login(ctx context.Context, acc config.Account) (string, error) 
 		payload["mobile"] = loginMobile
 		payload["area_code"] = areaCode
 	} else {
-		return "", errors.New("missing email/mobile")
+		return "", fmt.Errorf("missing email/mobile")
 	}
-	resp, err := c.postJSON(ctx, clients.regular, clients.fallback, dsprotocol.DeepSeekLoginURL, dsprotocol.BaseHeaders, payload)
+	headers := c.authHeaders(&auth.RequestAuth{AccountID: acc.Identifier()})
+	resp, err := c.postJSON(ctx, clients.regular, clients.fallback, dsprotocol.DeepSeekLoginURL, headers, payload)
 	if err != nil {
 		return "", err
 	}
@@ -47,7 +49,7 @@ func (c *Client) Login(ctx context.Context, acc config.Account) (string, error) 
 	user, _ := bizData["user"].(map[string]any)
 	token, _ := user["token"].(string)
 	if strings.TrimSpace(token) == "" {
-		return "", errors.New("missing login token")
+		return "", fmt.Errorf("missing login token")
 	}
 	return token, nil
 }
@@ -60,7 +62,7 @@ func (c *Client) CreateSession(ctx context.Context, a *auth.RequestAuth, maxAtte
 	attempts := 0
 	refreshed := false
 	for attempts < maxAttempts {
-		headers := c.authHeaders(a.DeepSeekToken)
+		headers := c.authHeaders(a)
 		resp, status, err := c.postJSONWithStatus(ctx, clients.regular, clients.fallback, dsprotocol.DeepSeekCreateSessionURL, headers, map[string]any{"agent": "chat"})
 		if err != nil {
 			config.Logger.Warn("[create_session] request error", "error", err, "account", a.AccountID)
@@ -90,7 +92,7 @@ func (c *Client) CreateSession(ctx context.Context, a *auth.RequestAuth, maxAtte
 		}
 		attempts++
 	}
-	return "", errors.New("create session failed")
+	return "", fmt.Errorf("create session failed")
 }
 
 func (c *Client) GetPow(ctx context.Context, a *auth.RequestAuth, maxAttempts int) (string, error) {
@@ -111,7 +113,7 @@ func (c *Client) GetPowForTarget(ctx context.Context, a *auth.RequestAuth, targe
 	lastFailureKind := FailureUnknown
 	lastFailureMessage := ""
 	for attempts < maxAttempts {
-		headers := c.authHeaders(a.DeepSeekToken)
+		headers := c.authHeaders(a)
 		resp, status, err := c.postJSONWithStatus(ctx, clients.regular, clients.fallback, dsprotocol.DeepSeekCreatePowURL, headers, map[string]any{"target_path": targetPath})
 		if err != nil {
 			config.Logger.Warn("[get_pow] request error", "error", err, "account", a.AccountID, "target_path", targetPath)
@@ -157,15 +159,20 @@ func (c *Client) GetPowForTarget(ctx context.Context, a *auth.RequestAuth, targe
 	if lastFailureKind != FailureUnknown {
 		return "", &RequestFailure{Op: "get pow", Kind: lastFailureKind, Message: lastFailureMessage}
 	}
-	return "", errors.New("get pow failed")
+	return "", fmt.Errorf("get pow failed")
 }
 
-func (c *Client) authHeaders(token string) map[string]string {
-	headers := make(map[string]string, len(dsprotocol.BaseHeaders)+1)
+func (c *Client) authHeaders(a *auth.RequestAuth) map[string]string {
+	headers := make(map[string]string, len(dsprotocol.BaseHeaders)+2)
 	for k, v := range dsprotocol.BaseHeaders {
 		headers[k] = v
 	}
-	headers["authorization"] = "Bearer " + token
+	if a != nil {
+		headers["User-Agent"] = c.randomUserAgent(a.AccountID)
+		if a.DeepSeekToken != "" {
+			headers["authorization"] = "Bearer " + a.DeepSeekToken
+		}
+	}
 	return headers
 }
 
@@ -300,6 +307,6 @@ func stableDeviceID(identifier string) string {
 	if identifier == "" {
 		return "android_device"
 	}
-	hash := sha256.Sum256([]byte(identifier + "_ds2api_salt"))
+	hash := sha256.Sum256([]byte(identifier + "_neutron_salt"))
 	return hex.EncodeToString(hash[:16])
 }

@@ -1,7 +1,7 @@
 package claude
 
 import (
-	"ds2api/internal/sse"
+	"neutronapi/internal/sse"
 	"encoding/json"
 	"io"
 	"net/http"

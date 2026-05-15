@@ -1,7 +1,7 @@
 package util
 
 import (
-	"ds2api/internal/toolcall"
+	"neutronapi/internal/toolcall"
 	"fmt"
 	"strings"
 	"time"

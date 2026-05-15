@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"testing"
 
-	"ds2api/internal/promptcompat"
-	"ds2api/internal/sse"
+	"neutronapi/internal/promptcompat"
+	"neutronapi/internal/sse"
 )
 
 func TestBuildTurnFromCollectedTextCitation(t *testing.T) {

@@ -17,10 +17,10 @@ export function useAdminAuth({ isProduction, location, t }) {
 
     const handleLogout = useCallback(() => {
         setToken(null)
-        localStorage.removeItem('ds2api_token')
-        localStorage.removeItem('ds2api_token_expires')
-        sessionStorage.removeItem('ds2api_token')
-        sessionStorage.removeItem('ds2api_token_expires')
+        localStorage.removeItem('neutronapi_token')
+        localStorage.removeItem('neutronapi_token_expires')
+        sessionStorage.removeItem('neutronapi_token')
+        sessionStorage.removeItem('neutronapi_token_expires')
     }, [])
 
     const handleLogin = useCallback((newToken) => {
@@ -34,8 +34,8 @@ export function useAdminAuth({ isProduction, location, t }) {
         }
 
         const checkAuth = async () => {
-            const storedToken = localStorage.getItem('ds2api_token') || sessionStorage.getItem('ds2api_token')
-            const expiresAt = parseInt(localStorage.getItem('ds2api_token_expires') || sessionStorage.getItem('ds2api_token_expires') || '0')
+            const storedToken = localStorage.getItem('neutronapi_token') || sessionStorage.getItem('neutronapi_token')
+            const expiresAt = parseInt(localStorage.getItem('neutronapi_token_expires') || sessionStorage.getItem('neutronapi_token_expires') || '0')
 
             if (storedToken && expiresAt > Date.now()) {
                 try {

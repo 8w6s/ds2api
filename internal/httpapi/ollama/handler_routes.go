@@ -1,8 +1,8 @@
 package ollama
 
 import (
-	"ds2api/internal/config"
-	"ds2api/internal/util"
+	"neutronapi/internal/config"
+	"neutronapi/internal/util"
 	"encoding/json"
 	"github.com/go-chi/chi/v5"
 	"log/slog"

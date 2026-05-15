@@ -8,14 +8,14 @@ import (
 	"strings"
 	"time"
 
-	"ds2api/internal/assistantturn"
-	"ds2api/internal/auth"
-	"ds2api/internal/completionruntime"
-	dsprotocol "ds2api/internal/deepseek/protocol"
-	"ds2api/internal/promptcompat"
-	"ds2api/internal/responsehistory"
-	"ds2api/internal/sse"
-	streamengine "ds2api/internal/stream"
+	"neutronapi/internal/assistantturn"
+	"neutronapi/internal/auth"
+	"neutronapi/internal/completionruntime"
+	dsprotocol "neutronapi/internal/deepseek/protocol"
+	"neutronapi/internal/promptcompat"
+	"neutronapi/internal/responsehistory"
+	"neutronapi/internal/sse"
+	streamengine "neutronapi/internal/stream"
 )
 
 //nolint:unused // retained for native Gemini stream handling path.

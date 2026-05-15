@@ -3,18 +3,18 @@ package admin
 import (
 	"github.com/go-chi/chi/v5"
 
-	"ds2api/internal/chathistory"
-	adminaccounts "ds2api/internal/httpapi/admin/accounts"
-	adminauth "ds2api/internal/httpapi/admin/auth"
-	adminconfig "ds2api/internal/httpapi/admin/configmgmt"
-	admindevcapture "ds2api/internal/httpapi/admin/devcapture"
-	adminhistory "ds2api/internal/httpapi/admin/history"
-	adminproxies "ds2api/internal/httpapi/admin/proxies"
-	adminrawsamples "ds2api/internal/httpapi/admin/rawsamples"
-	adminsettings "ds2api/internal/httpapi/admin/settings"
-	adminshared "ds2api/internal/httpapi/admin/shared"
-	adminvercel "ds2api/internal/httpapi/admin/vercel"
-	adminversion "ds2api/internal/httpapi/admin/version"
+	"neutronapi/internal/chathistory"
+	adminaccounts "neutronapi/internal/httpapi/admin/accounts"
+	adminauth "neutronapi/internal/httpapi/admin/auth"
+	adminconfig "neutronapi/internal/httpapi/admin/configmgmt"
+	admindevcapture "neutronapi/internal/httpapi/admin/devcapture"
+	adminhistory "neutronapi/internal/httpapi/admin/history"
+	adminproxies "neutronapi/internal/httpapi/admin/proxies"
+	adminrawsamples "neutronapi/internal/httpapi/admin/rawsamples"
+	adminsettings "neutronapi/internal/httpapi/admin/settings"
+	adminshared "neutronapi/internal/httpapi/admin/shared"
+	adminvercel "neutronapi/internal/httpapi/admin/vercel"
+	adminversion "neutronapi/internal/httpapi/admin/version"
 )
 
 type Handler struct {

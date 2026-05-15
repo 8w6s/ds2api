@@ -7,8 +7,8 @@ import (
 	"reflect"
 	"testing"
 
-	"ds2api/internal/sse"
-	"ds2api/internal/util"
+	"neutronapi/internal/sse"
+	"neutronapi/internal/util"
 )
 
 func TestGoCompatSSEFixtures(t *testing.T) {

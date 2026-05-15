@@ -1,6 +1,6 @@
 package shared
 
-import "ds2api/internal/promptcompat"
+import "neutronapi/internal/promptcompat"
 
 func ApplyThinkingInjection(store ConfigReader, stdReq promptcompat.StandardRequest) promptcompat.StandardRequest {
 	if store == nil || !store.ThinkingInjectionEnabled() || !stdReq.Thinking {

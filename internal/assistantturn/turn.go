@@ -4,11 +4,11 @@ import (
 	"net/http"
 	"strings"
 
-	"ds2api/internal/httpapi/openai/shared"
-	"ds2api/internal/promptcompat"
-	"ds2api/internal/sse"
-	"ds2api/internal/toolcall"
-	"ds2api/internal/util"
+	"neutronapi/internal/httpapi/openai/shared"
+	"neutronapi/internal/promptcompat"
+	"neutronapi/internal/sse"
+	"neutronapi/internal/toolcall"
+	"neutronapi/internal/util"
 )
 
 type StopReason string

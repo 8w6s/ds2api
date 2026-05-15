@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"ds2api/internal/config"
-	"ds2api/internal/util"
+	"neutronapi/internal/config"
+	"neutronapi/internal/util"
 )
 
 type ConfigReader interface {

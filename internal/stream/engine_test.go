@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"ds2api/internal/sse"
+	"neutronapi/internal/sse"
 )
 
 func TestConsumeSSEPrefersContextCancellationOverReadyParsedLines(t *testing.T) {

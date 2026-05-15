@@ -4,9 +4,9 @@ import (
 	"net/http"
 	"strings"
 
-	authn "ds2api/internal/auth"
-	"ds2api/internal/config"
-	"ds2api/internal/promptcompat"
+	authn "neutronapi/internal/auth"
+	"neutronapi/internal/config"
+	"neutronapi/internal/promptcompat"
 )
 
 func (h *Handler) getSettings(w http.ResponseWriter, _ *http.Request) {

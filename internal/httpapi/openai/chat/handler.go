@@ -6,15 +6,15 @@ import (
 	"sync"
 	"time"
 
-	"ds2api/internal/auth"
-	"ds2api/internal/chathistory"
-	"ds2api/internal/httpapi/openai/files"
-	"ds2api/internal/httpapi/openai/history"
-	"ds2api/internal/httpapi/openai/shared"
-	"ds2api/internal/promptcompat"
-	"ds2api/internal/textclean"
-	"ds2api/internal/toolcall"
-	"ds2api/internal/toolstream"
+	"neutronapi/internal/auth"
+	"neutronapi/internal/chathistory"
+	"neutronapi/internal/httpapi/openai/files"
+	"neutronapi/internal/httpapi/openai/history"
+	"neutronapi/internal/httpapi/openai/shared"
+	"neutronapi/internal/promptcompat"
+	"neutronapi/internal/textclean"
+	"neutronapi/internal/toolcall"
+	"neutronapi/internal/toolstream"
 )
 
 const openAIGeneralMaxSize = shared.GeneralMaxSize

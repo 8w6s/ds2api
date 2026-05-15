@@ -1,7 +1,7 @@
 package openai
 
 import (
-	"ds2api/internal/toolcall"
+	"neutronapi/internal/toolcall"
 	"strings"
 	"time"
 )

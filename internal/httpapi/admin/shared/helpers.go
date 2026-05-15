@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"strings"
 
-	"ds2api/internal/config"
-	"ds2api/internal/util"
+	"neutronapi/internal/config"
+	"neutronapi/internal/util"
 )
 
 var intFrom = util.IntFrom

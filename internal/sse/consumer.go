@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"strings"
 
-	dsprotocol "ds2api/internal/deepseek/protocol"
-	"ds2api/internal/util"
+	dsprotocol "neutronapi/internal/deepseek/protocol"
+	"neutronapi/internal/util"
 )
 
 // CollectResult holds the aggregated text and thinking content from a

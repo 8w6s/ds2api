@@ -2,15 +2,15 @@ package client
 
 import (
 	"context"
-	dsprotocol "ds2api/internal/deepseek/protocol"
+	dsprotocol "neutronapi/internal/deepseek/protocol"
 	"errors"
 	"fmt"
 	"net/http"
 	"net/url"
 	"strings"
 
-	"ds2api/internal/auth"
-	"ds2api/internal/config"
+	"neutronapi/internal/auth"
+	"neutronapi/internal/config"
 )
 
 // SessionInfo 会话信息
@@ -47,7 +47,7 @@ func (c *Client) GetSessionCount(ctx context.Context, a *auth.RequestAuth, maxAt
 	refreshed := false
 
 	for attempts < maxAttempts {
-		headers := c.authHeaders(a.DeepSeekToken)
+		headers := c.authHeaders(a)
 
 		// 构建请求 URL
 		reqURL := dsprotocol.DeepSeekFetchSessionURL + "?lte_cursor.pinned=false"
@@ -109,7 +109,7 @@ func (c *Client) GetSessionCount(ctx context.Context, a *auth.RequestAuth, maxAt
 // GetSessionCountForToken 直接使用 token 获取会话数量（直通模式）
 func (c *Client) GetSessionCountForToken(ctx context.Context, token string) (*SessionStats, error) {
 	clients := c.requestClientsFromContext(ctx)
-	headers := c.authHeaders(token)
+	headers := c.authHeaders(&auth.RequestAuth{DeepSeekToken: token})
 	reqURL := dsprotocol.DeepSeekFetchSessionURL + "?lte_cursor.pinned=false"
 
 	resp, status, err := c.getJSONWithStatus(ctx, clients.regular, reqURL, headers)
@@ -195,7 +195,7 @@ func (c *Client) GetSessionCountAll(ctx context.Context) []*SessionStats {
 // FetchSessionPage 获取会话列表（支持分页）
 func (c *Client) FetchSessionPage(ctx context.Context, a *auth.RequestAuth, cursor string) ([]SessionInfo, bool, error) {
 	clients := c.requestClientsForAuth(ctx, a)
-	headers := c.authHeaders(a.DeepSeekToken)
+	headers := c.authHeaders(a)
 
 	// 构建请求 URL
 	params := url.Values{}

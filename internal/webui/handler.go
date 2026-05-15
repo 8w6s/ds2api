@@ -8,13 +8,13 @@ import (
 
 	"github.com/go-chi/chi/v5"
 
-	"ds2api/internal/config"
+	"neutronapi/internal/config"
 )
 
 const welcomeHTML = `<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>DS2API</title>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>NeutronAPI</title>
 <style>body{font-family:Inter,system-ui,sans-serif;background:#030712;color:#f9fafb;display:flex;min-height:100vh;align-items:center;justify-content:center;margin:0}a{color:#f59e0b;text-decoration:none}main{max-width:700px;padding:24px;text-align:center}h1{font-size:48px;margin:0 0 12px}.links{display:flex;gap:16px;justify-content:center;margin-top:20px;flex-wrap:wrap}</style>
-</head><body><main><h1>DS2API</h1><p>DeepSeek to OpenAI & Claude Compatible API</p><div class="links"><a href="/admin">Dashboard</a><a href="/v1/models">API Status</a><a href="https://github.com/8w6s/ds2api" target="_blank">GitHub</a></div></main></body></html>`
+</head><body><main><h1>NeutronAPI</h1><p>DeepSeek to OpenAI & Claude Compatible API</p><div class="links"><a href="/admin">Dashboard</a><a href="/v1/models">API Status</a><a href="https://github.com/NeutronAPI Team/neutronapi" target="_blank">GitHub</a></div></main></body></html>`
 
 type Handler struct {
 	StaticDir string
@@ -142,7 +142,7 @@ func isPathInsideRoot(path, root string) bool {
 }
 
 func resolveStaticAdminDir(preferred string) string {
-	if strings.TrimSpace(os.Getenv("DS2API_STATIC_ADMIN_DIR")) != "" {
+	if strings.TrimSpace(os.Getenv("NEUTRON_STATIC_ADMIN_DIR")) != "" {
 		return filepath.Clean(preferred)
 	}
 	candidates := []string{preferred}

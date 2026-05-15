@@ -3,7 +3,7 @@ package shared
 import (
 	"strings"
 
-	"ds2api/internal/sse"
+	"neutronapi/internal/sse"
 )
 
 type StreamAccumulator struct {

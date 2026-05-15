@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"sync"
 
-	"ds2api/app"
+	"neutronapi/app"
 )
 
 var (

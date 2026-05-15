@@ -1,7 +1,7 @@
 package toolstream
 
 import (
-	"ds2api/internal/toolcall"
+	"neutronapi/internal/toolcall"
 	"strings"
 )
 

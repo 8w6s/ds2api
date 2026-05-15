@@ -1,12 +1,12 @@
 package responses
 
 import (
-	"ds2api/internal/toolcall"
-	"ds2api/internal/toolstream"
+	"neutronapi/internal/toolcall"
+	"neutronapi/internal/toolstream"
 	"encoding/json"
 	"strings"
 
-	openaifmt "ds2api/internal/format/openai"
+	openaifmt "neutronapi/internal/format/openai"
 
 	"github.com/google/uuid"
 )

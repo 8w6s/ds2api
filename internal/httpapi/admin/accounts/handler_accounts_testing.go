@@ -11,11 +11,11 @@ import (
 	"sync"
 	"time"
 
-	authn "ds2api/internal/auth"
-	"ds2api/internal/config"
-	"ds2api/internal/prompt"
-	"ds2api/internal/promptcompat"
-	"ds2api/internal/sse"
+	authn "neutronapi/internal/auth"
+	"neutronapi/internal/config"
+	"neutronapi/internal/prompt"
+	"neutronapi/internal/promptcompat"
+	"neutronapi/internal/sse"
 )
 
 type modelAliasSnapshotReader struct {

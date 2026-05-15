@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"strings"
 
-	"ds2api/internal/config"
-	"ds2api/internal/prompt"
-	"ds2api/internal/promptcompat"
-	"ds2api/internal/util"
+	"neutronapi/internal/config"
+	"neutronapi/internal/prompt"
+	"neutronapi/internal/promptcompat"
+	"neutronapi/internal/util"
 )
 
 type claudeNormalizedRequest struct {

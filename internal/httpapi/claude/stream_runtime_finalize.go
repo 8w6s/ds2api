@@ -1,16 +1,16 @@
 package claude
 
 import (
-	"ds2api/internal/assistantturn"
-	"ds2api/internal/responsehistory"
-	"ds2api/internal/sse"
-	"ds2api/internal/toolcall"
-	"ds2api/internal/toolstream"
+	"neutronapi/internal/assistantturn"
+	"neutronapi/internal/responsehistory"
+	"neutronapi/internal/sse"
+	"neutronapi/internal/toolcall"
+	"neutronapi/internal/toolstream"
 	"encoding/json"
 	"fmt"
 	"time"
 
-	streamengine "ds2api/internal/stream"
+	streamengine "neutronapi/internal/stream"
 )
 
 func (s *claudeStreamRuntime) closeThinkingBlock() {

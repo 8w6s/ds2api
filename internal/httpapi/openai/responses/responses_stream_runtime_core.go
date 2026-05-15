@@ -1,19 +1,19 @@
 package responses
 
 import (
-	"ds2api/internal/assistantturn"
-	"ds2api/internal/toolcall"
+	"neutronapi/internal/assistantturn"
+	"neutronapi/internal/toolcall"
 	"net/http"
 	"strings"
 
-	"ds2api/internal/config"
-	openaifmt "ds2api/internal/format/openai"
-	"ds2api/internal/httpapi/openai/shared"
-	"ds2api/internal/promptcompat"
-	"ds2api/internal/responsehistory"
-	"ds2api/internal/sse"
-	streamengine "ds2api/internal/stream"
-	"ds2api/internal/toolstream"
+	"neutronapi/internal/config"
+	openaifmt "neutronapi/internal/format/openai"
+	"neutronapi/internal/httpapi/openai/shared"
+	"neutronapi/internal/promptcompat"
+	"neutronapi/internal/responsehistory"
+	"neutronapi/internal/sse"
+	streamengine "neutronapi/internal/stream"
+	"neutronapi/internal/toolstream"
 )
 
 type responsesStreamRuntime struct {

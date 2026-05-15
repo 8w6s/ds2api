@@ -11,9 +11,9 @@ import (
 
 	"github.com/go-chi/chi/v5"
 
-	"ds2api/internal/auth"
-	"ds2api/internal/chathistory"
-	dsclient "ds2api/internal/deepseek/client"
+	"neutronapi/internal/auth"
+	"neutronapi/internal/chathistory"
+	dsclient "neutronapi/internal/deepseek/client"
 )
 
 type responsesHistoryDS struct {
@@ -88,7 +88,7 @@ func TestResponsesRecordsResponseHistory(t *testing.T) {
 	if item.Surface != "openai.responses" {
 		t.Fatalf("unexpected surface: %q", item.Surface)
 	}
-	if !strings.Contains(item.UserInput, "Continue from the latest state in the attached DS2API_HISTORY.txt context.") {
+	if !strings.Contains(item.UserInput, "Continue from the latest state in the attached NEUTRON_HISTORY.txt context.") {
 		t.Fatalf("unexpected user input: %q", item.UserInput)
 	}
 	if !strings.Contains(item.HistoryText, "hello responses") {

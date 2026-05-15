@@ -3,7 +3,7 @@ package shared
 import (
 	"strings"
 
-	"ds2api/internal/config"
+	"neutronapi/internal/config"
 )
 
 func normalizeSettingsConfig(c *config.Config) {

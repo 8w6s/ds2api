@@ -6,11 +6,11 @@ import (
 	"sync"
 	"time"
 
-	"ds2api/internal/auth"
-	"ds2api/internal/config"
-	trans "ds2api/internal/deepseek/transport"
-	"ds2api/internal/devcapture"
-	"ds2api/internal/util"
+	"neutronapi/internal/auth"
+	"neutronapi/internal/config"
+	trans "neutronapi/internal/deepseek/transport"
+	"neutronapi/internal/devcapture"
+	"neutronapi/internal/util"
 )
 
 // intFrom is a package-internal alias for the shared util version.

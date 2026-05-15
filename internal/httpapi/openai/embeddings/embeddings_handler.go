@@ -8,11 +8,11 @@ import (
 	"net/http"
 	"strings"
 
-	"ds2api/internal/auth"
-	"ds2api/internal/chathistory"
-	"ds2api/internal/config"
-	"ds2api/internal/httpapi/openai/shared"
-	"ds2api/internal/util"
+	"neutronapi/internal/auth"
+	"neutronapi/internal/chathistory"
+	"neutronapi/internal/config"
+	"neutronapi/internal/httpapi/openai/shared"
+	"neutronapi/internal/util"
 )
 
 type Handler struct {

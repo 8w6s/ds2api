@@ -1,7 +1,7 @@
 package claude
 
 import (
-	"ds2api/internal/toolcall"
+	"neutronapi/internal/toolcall"
 	"fmt"
 	"strings"
 )

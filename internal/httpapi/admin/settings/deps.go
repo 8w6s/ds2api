@@ -1,9 +1,9 @@
 package settings
 
 import (
-	"ds2api/internal/chathistory"
-	"ds2api/internal/config"
-	adminshared "ds2api/internal/httpapi/admin/shared"
+	"neutronapi/internal/chathistory"
+	"neutronapi/internal/config"
+	adminshared "neutronapi/internal/httpapi/admin/shared"
 )
 
 type Handler struct {

@@ -1,4 +1,4 @@
-module ds2api
+module neutronapi
 
 go 1.26.0
 

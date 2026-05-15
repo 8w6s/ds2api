@@ -13,8 +13,8 @@ import (
 
 	"github.com/google/uuid"
 
-	"ds2api/internal/config"
-	"ds2api/internal/util"
+	"neutronapi/internal/config"
+	"neutronapi/internal/util"
 )
 
 const (

@@ -7,9 +7,9 @@ import (
 	"testing"
 	"time"
 
-	"ds2api/internal/chathistory"
-	"ds2api/internal/promptcompat"
-	"ds2api/internal/stream"
+	"neutronapi/internal/chathistory"
+	"neutronapi/internal/promptcompat"
+	"neutronapi/internal/stream"
 )
 
 func TestConsumeChatStreamAttemptMarksContextCancelledState(t *testing.T) {

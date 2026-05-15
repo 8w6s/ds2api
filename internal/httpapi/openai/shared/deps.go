@@ -4,11 +4,11 @@ import (
 	"context"
 	"net/http"
 
-	"ds2api/internal/auth"
-	"ds2api/internal/chathistory"
-	"ds2api/internal/config"
-	dsclient "ds2api/internal/deepseek/client"
-	"ds2api/internal/util"
+	"neutronapi/internal/auth"
+	"neutronapi/internal/chathistory"
+	"neutronapi/internal/config"
+	dsclient "neutronapi/internal/deepseek/client"
+	"neutronapi/internal/util"
 )
 
 const (

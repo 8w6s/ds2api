@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"ds2api/internal/config"
+	"neutronapi/internal/config"
 )
 
 func TestMessagesPrepareBasic(t *testing.T) {

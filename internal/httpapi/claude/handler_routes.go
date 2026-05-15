@@ -6,11 +6,11 @@ import (
 
 	"github.com/go-chi/chi/v5"
 
-	"ds2api/internal/chathistory"
-	"ds2api/internal/config"
-	dsprotocol "ds2api/internal/deepseek/protocol"
-	"ds2api/internal/textclean"
-	"ds2api/internal/util"
+	"neutronapi/internal/chathistory"
+	"neutronapi/internal/config"
+	dsprotocol "neutronapi/internal/deepseek/protocol"
+	"neutronapi/internal/textclean"
+	"neutronapi/internal/util"
 )
 
 // writeJSON is a package-internal alias to avoid mass-renaming all call-sites.

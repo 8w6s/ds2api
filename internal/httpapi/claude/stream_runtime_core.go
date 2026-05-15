@@ -6,11 +6,11 @@ import (
 	"strings"
 	"time"
 
-	"ds2api/internal/responsehistory"
-	"ds2api/internal/sse"
-	streamengine "ds2api/internal/stream"
-	"ds2api/internal/toolcall"
-	"ds2api/internal/toolstream"
+	"neutronapi/internal/responsehistory"
+	"neutronapi/internal/sse"
+	streamengine "neutronapi/internal/stream"
+	"neutronapi/internal/toolcall"
+	"neutronapi/internal/toolstream"
 )
 
 type claudeStreamRuntime struct {

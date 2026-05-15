@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strings"
 
-	"ds2api/internal/config"
-	"ds2api/internal/promptcompat"
-	"ds2api/internal/util"
+	"neutronapi/internal/config"
+	"neutronapi/internal/promptcompat"
+	"neutronapi/internal/util"
 )
 
 //nolint:unused // kept for native Gemini adapter route compatibility.

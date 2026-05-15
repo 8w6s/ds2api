@@ -6,12 +6,12 @@ import (
 	"strings"
 	"unicode"
 
-	"ds2api/internal/toolcall"
+	"neutronapi/internal/toolcall"
 )
 
-const CurrentToolsContextFilename = "DS2API_TOOLS.txt"
+const CurrentToolsContextFilename = "NEUTRON_TOOLS.txt"
 
-const toolsTranscriptTitle = "# DS2API_TOOLS.txt"
+const toolsTranscriptTitle = "# NEUTRON_TOOLS.txt"
 const toolsTranscriptSummary = "Available tool descriptions and parameter schemas for this request."
 
 type toolPromptParts struct {

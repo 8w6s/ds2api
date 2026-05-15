@@ -3,8 +3,8 @@ package promptcompat
 import (
 	"strings"
 
-	"ds2api/internal/prompt"
-	"ds2api/internal/toolcall"
+	"neutronapi/internal/prompt"
+	"neutronapi/internal/toolcall"
 )
 
 const assistantReasoningLabel = "reasoning_content"

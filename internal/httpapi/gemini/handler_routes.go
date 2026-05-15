@@ -5,9 +5,9 @@ import (
 
 	"github.com/go-chi/chi/v5"
 
-	"ds2api/internal/chathistory"
-	"ds2api/internal/textclean"
-	"ds2api/internal/util"
+	"neutronapi/internal/chathistory"
+	"neutronapi/internal/textclean"
+	"neutronapi/internal/util"
 )
 
 var writeJSON = util.WriteJSON
