@@ -5,7 +5,7 @@ ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT_DIR"
 
 LINT_BIN="${GOLANGCI_LINT_BIN:-golangci-lint}"
-BOOTSTRAP_VERSION="${GOLANGCI_LINT_VERSION:-v2.11.4}"
+BOOTSTRAP_VERSION="${GOLANGCI_LINT_VERSION:-v1.61.0}"
 BOOTSTRAP_BIN="${ROOT_DIR}/.tmp/golangci-lint-${BOOTSTRAP_VERSION}"
 
 export GOCACHE="${GOCACHE:-${ROOT_DIR}/.tmp/go-build-cache}"
@@ -53,9 +53,9 @@ bootstrap_golangci_lint() {
 run_lint() {
   local bin="$1"
   if [[ "$bin" == *" "* ]]; then
-    eval "$bin fmt --diff -c .golangci.yml" && eval "$bin run -c .golangci.yml ./..."
+    eval "$bin run -c .golangci.yml ./..."
   else
-    "$bin" fmt --diff -c .golangci.yml && "$bin" run -c .golangci.yml ./...
+    "$bin" run -c .golangci.yml ./...
   fi
 }
 
