@@ -24,15 +24,15 @@
       "remark": "Preferred for production traffic",
       "email": "example1@example.com",
       "password": "your-password-1"
-    }
-  ],
-      "_comment": "邮箱登录方式 - 账号2",
-      "name": "备用账号",
+    },
+    {
+      "_comment": "Email login method - Account 2",
+      "name": "Backup Account",
       "email": "example2@example.com",
       "password": "your-password-2"
     },
     {
-      "_comment": "手机号登录方式（中国大陆）",
+      "_comment": "Mobile login method (China Mainland)",
       "mobile": "12345678901",
       "password": "your-password-3"
     }

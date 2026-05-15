@@ -9,7 +9,7 @@ SAMPLE_ID="${2:-capture-$(date -u +%Y%m%dT%H%M%SZ)}"
 QUESTION="${3:-广州天气}"
 MODEL="${4:-deepseek-v4-pro-search}"
 API_KEY="${5:-}"
-ADMIN_KEY="${DS2API_ADMIN_KEY:-admin}"
+ADMIN_KEY="${NEUTRON_ADMIN_KEY:-admin}"
 
 if [[ -z "$API_KEY" ]]; then
   API_KEY="$(python3 - <<'PY' "$CONFIG_PATH"
@@ -31,15 +31,15 @@ BODY_FILE="$(mktemp)"
 
 cleanup() {
   rm -f "$HDR_FILE" "$BODY_FILE"
-  pkill -f "cmd/ds2api" >/dev/null 2>&1 || true
+  pkill -f "cmd/neutronapi" >/dev/null 2>&1 || true
 }
 trap cleanup EXIT
 
-DS2API_CONFIG_PATH="$CONFIG_PATH" \
-DS2API_ADMIN_KEY="$ADMIN_KEY" \
-DS2API_DEV_PACKET_CAPTURE=1 \
-DS2API_DEV_PACKET_CAPTURE_LIMIT=20 \
-  go run ./cmd/ds2api >/tmp/ds2api_capture_server.log 2>&1 &
+NEUTRON_CONFIG_PATH="$CONFIG_PATH" \
+NEUTRON_ADMIN_KEY="$ADMIN_KEY" \
+NEUTRON_DEV_PACKET_CAPTURE=1 \
+NEUTRON_DEV_PACKET_CAPTURE_LIMIT=20 \
+  go run ./cmd/neutronapi >/tmp/neutronapi_capture_server.log 2>&1 &
 
 for _ in $(seq 1 120); do
   if curl -sSf http://127.0.0.1:5001/healthz >/dev/null 2>&1; then
