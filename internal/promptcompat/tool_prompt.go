@@ -9,9 +9,9 @@ import (
 	"neutronapi/internal/toolcall"
 )
 
-const CurrentToolsContextFilename = "NEUTRON_TOOLS.txt"
+const CurrentToolsContextFilename = "FUNCTION_DEFINITIONS.txt"
 
-const toolsTranscriptTitle = "# NEUTRON_TOOLS.txt"
+const toolsTranscriptTitle = "# FUNCTION_DEFINITIONS.txt"
 const toolsTranscriptSummary = "Available tool descriptions and parameter schemas for this request."
 
 type toolPromptParts struct {

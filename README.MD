@@ -85,7 +85,7 @@ flowchart LR
             DSClient["DeepSeek Client\n(session / auth / completion / files)"]
             Pow["PoW Solver\n(Pure Go)"]
             Tool["Tool Sieve\n(Go/Node semantic parity)"]
-            History["Current Input File\n(NEUTRON_HISTORY.txt)"]
+            History["Current Input File\n(CONVERSATION_CONTEXT.txt)"]
         end
     end
 
@@ -310,7 +310,7 @@ Common fields:
 - `model_aliases`: one shared alias map for OpenAI / Claude / Gemini model names.
 - `runtime`: account concurrency, queueing, and token refresh behavior, hot-reloadable via Admin Settings.
 - `auto_delete.mode`: remote session cleanup after each request, supporting `none` / `single` / `all`.
-- `current_input_file`: the global context split/upload mode; it is enabled by default and uploads the full context as a `NEUTRON_HISTORY.txt` context file once the character threshold is reached.
+- `current_input_file`: the global context split/upload mode; it is enabled by default and uploads the full context as a `CONVERSATION_CONTEXT.txt` context file once the character threshold is reached.
 - If you turn off `current_input_file`, requests pass through directly without uploading any split context file.
 
 For the full environment variable list, see [docs/DEPLOY.md](docs/DEPLOY.md). For auth behavior, see [API.md](API.md#authentication).

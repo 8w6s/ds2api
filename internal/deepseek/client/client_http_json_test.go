@@ -3,27 +3,20 @@ package client
 import (
 	"context"
 	"errors"
-	"io"
 	"net/http"
 	"strings"
 	"testing"
 )
 
-func TestPostJSONWithStatusUsesProvidedFallbackClient(t *testing.T) {
-	var fallbackCalled bool
+func TestPostJSONWithStatusDoesNotUseFallbackOnFailure(t *testing.T) {
 	client := &Client{}
 	primary := failingDoer{err: errors.New("primary failed")}
 	fallbackDoer := doerFunc(func(req *http.Request) (*http.Response, error) {
-		fallbackCalled = true
-		return &http.Response{
-			StatusCode: http.StatusOK,
-			Header:     make(http.Header),
-			Body:       io.NopCloser(strings.NewReader(`{"ok":true}`)),
-			Request:    req,
-		}, nil
+		t.Fatal("fallback should not be called")
+		return nil, nil
 	})
 
-	resp, status, err := client.postJSONWithStatus(
+	_, _, err := client.postJSONWithStatus(
 		context.Background(),
 		primary,
 		fallbackDoer,
@@ -31,17 +24,11 @@ func TestPostJSONWithStatusUsesProvidedFallbackClient(t *testing.T) {
 		map[string]string{"x-test": "1"},
 		map[string]any{"foo": "bar"},
 	)
-	if err != nil {
-		t.Fatalf("postJSONWithStatus error: %v", err)
+	if err == nil {
+		t.Fatal("expected error from primary doer, got nil")
 	}
-	if status != http.StatusOK {
-		t.Fatalf("status=%d want=%d", status, http.StatusOK)
-	}
-	if !fallbackCalled {
-		t.Fatal("expected provided fallback doer to be called")
-	}
-	if ok, _ := resp["ok"].(bool); !ok {
-		t.Fatalf("unexpected response body: %#v", resp)
+	if !strings.Contains(err.Error(), "primary failed") {
+		t.Fatalf("unexpected error message: %v", err)
 	}
 }
 

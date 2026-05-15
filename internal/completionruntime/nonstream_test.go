@@ -301,8 +301,8 @@ func TestStartCompletionAppliesCurrentInputFileGlobally(t *testing.T) {
 	if len(ds.uploads) != 1 {
 		t.Fatalf("expected current input upload, got %d", len(ds.uploads))
 	}
-	if got := ds.uploads[0].Filename; got != "NEUTRON_HISTORY.txt" {
-		t.Fatalf("upload filename=%q want NEUTRON_HISTORY.txt", got)
+	if got := ds.uploads[0].Filename; got != "CONVERSATION_CONTEXT.txt" {
+		t.Fatalf("upload filename=%q want CONVERSATION_CONTEXT.txt", got)
 	}
 	if len(ds.payloads) != 1 {
 		t.Fatalf("expected one completion payload, got %d", len(ds.payloads))
@@ -312,10 +312,10 @@ func TestStartCompletionAppliesCurrentInputFileGlobally(t *testing.T) {
 		t.Fatalf("expected uploaded file id in ref_file_ids, got %#v", ds.payloads[0]["ref_file_ids"])
 	}
 	prompt, _ := ds.payloads[0]["prompt"].(string)
-	if !strings.Contains(prompt, "Continue from the latest state in the attached NEUTRON_HISTORY.txt context.") {
+	if !strings.Contains(prompt, "Continue from the latest state in the attached CONVERSATION_CONTEXT.txt context.") {
 		t.Fatalf("expected continuation prompt, got %q", prompt)
 	}
-	if !start.Request.CurrentInputFileApplied || !strings.Contains(start.Request.PromptTokenText, "# NEUTRON_HISTORY.txt") {
+	if !start.Request.CurrentInputFileApplied || !strings.Contains(start.Request.PromptTokenText, "# CONVERSATION_CONTEXT.txt") {
 		t.Fatalf("expected prepared request to carry current input file state, got %#v", start.Request)
 	}
 }
