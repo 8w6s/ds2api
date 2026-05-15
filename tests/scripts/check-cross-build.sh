@@ -16,15 +16,21 @@ build_one() {
     out="${out}.exe"
   fi
 
-  echo "[cross-build] ${label}"
+  echo "[cross-build] ${label} (OS=${goos} ARCH=${goarch} ARM=${goarm})"
   mkdir -p "$(dirname "$out")"
   if [[ "$goarm" == "-" ]]; then
     CGO_ENABLED=0 GOOS="$goos" GOARCH="$goarch" \
-      go build -buildvcs=false -trimpath -o "$out" ./cmd/neutronapi
+      go build -buildvcs=false -trimpath -v -o "$out" ./cmd/neutronapi
   else
     CGO_ENABLED=0 GOOS="$goos" GOARCH="$goarch" GOARM="$goarm" \
-      go build -buildvcs=false -trimpath -o "$out" ./cmd/neutronapi
+      go build -buildvcs=false -trimpath -v -o "$out" ./cmd/neutronapi
   fi
+  local status=$?
+  if [[ $status -ne 0 ]]; then
+    echo "❌ [cross-build] FAILED: ${label}"
+    return $status
+  fi
+  echo "✅ [cross-build] SUCCESS: ${label}"
 }
 
 if [[ "${1:-}" == "--build-one" ]]; then
