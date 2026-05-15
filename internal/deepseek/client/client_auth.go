@@ -15,9 +15,11 @@ import (
 
 func (c *Client) Login(ctx context.Context, acc config.Account) (string, error) {
 	clients := c.requestClientsForAccount(acc)
+	// Sinh device_id ổn định nhưng không lộ liễu dựa trên email/mobile
+	deviceID := stableDeviceID(acc.Identifier())
 	payload := map[string]any{
 		"password":  strings.TrimSpace(acc.Password),
-		"device_id": "deepseek_to_api",
+		"device_id": deviceID,
 		"os":        "android",
 	}
 	if email := strings.TrimSpace(acc.Email); email != "" {
@@ -292,4 +294,12 @@ func normalizeMobileForLogin(raw string) (mobile string, areaCode any) {
 		return digits[2:], nil
 	}
 	return digits, nil
+}
+
+func stableDeviceID(identifier string) string {
+	if identifier == "" {
+		return "android_device"
+	}
+	hash := sha256.Sum256([]byte(identifier + "_ds2api_salt"))
+	return hex.EncodeToString(hash[:16])
 }

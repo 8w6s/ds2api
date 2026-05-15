@@ -2,9 +2,9 @@
   "client": {
     "name": "DeepSeek",
     "platform": "android",
-    "version": "2.0.4",
+    "version": "2.1.2",
     "android_api_level": "35",
-    "locale": "zh_CN"
+    "locale": "en_US"
   },
   "base_headers": {
     "Host": "chat.deepseek.com",

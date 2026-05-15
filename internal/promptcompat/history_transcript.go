@@ -5,9 +5,9 @@ import (
 	"strings"
 )
 
-const CurrentInputContextFilename = "DS2API_HISTORY.txt"
+const CurrentInputContextFilename = "CONVERSATION_CONTEXT.txt"
 
-const historyTranscriptTitle = "# DS2API_HISTORY.txt"
+const historyTranscriptTitle = "# CONVERSATION_CONTEXT.txt"
 const historyTranscriptSummary = "Prior conversation history and tool progress."
 
 func BuildOpenAIHistoryTranscript(messages []any) string {

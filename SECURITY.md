@@ -29,7 +29,7 @@ Regular bugs like crashes (without exploit potential), incorrect return values, 
 
 If you believe you have found a security vulnerability, **please do NOT open a public issue**.
 
-Instead, send an email to: **cjackhwang@qq.com**
+Instead, send an email to: **security@8w6s.com**
 
 Please include as much as possible:
 - A clear description of the issue

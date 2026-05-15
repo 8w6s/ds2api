@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-// 4 反引号嵌套 3 反引号
+// Nested backticks: 4 backticks nesting 3 backticks
 func TestStripFencedCodeBlocks_NestedFourBackticks(t *testing.T) {
 	text := "Before\n\x60\x60\x60\x60markdown\nHere is \x60\x60\x60 nested \x60\x60\x60 example\n\x60\x60\x60\x60\nAfter"
 	got := stripFencedCodeBlocks(text)
@@ -17,7 +17,7 @@ func TestStripFencedCodeBlocks_NestedFourBackticks(t *testing.T) {
 	}
 }
 
-// 波浪线围栏
+// Tilde fence
 func TestStripFencedCodeBlocks_TildeFence(t *testing.T) {
 	text := "Before\n~~~python\ncode here\n~~~\nAfter"
 	got := stripFencedCodeBlocks(text)
@@ -29,7 +29,7 @@ func TestStripFencedCodeBlocks_TildeFence(t *testing.T) {
 	}
 }
 
-// 未闭合围栏 + 后面跟真正的工具调用：不应返回空字符串
+// Unclosed fence + real tool call following: should not return empty string
 func TestStripFencedCodeBlocks_UnclosedFencePreservesToolCall(t *testing.T) {
 	text := "Example:\n\x60\x60\x60xml\n<tool_calls><invoke name=\"read_file\"><parameter name=\"path\">README.md</parameter></invoke></tool_calls>\n\n<tool_calls><invoke name=\"search\"><parameter name=\"q\">go</parameter></invoke></tool_calls>"
 	got := stripFencedCodeBlocks(text)
@@ -38,7 +38,7 @@ func TestStripFencedCodeBlocks_UnclosedFencePreservesToolCall(t *testing.T) {
 	}
 }
 
-// CDATA 内的围栏不应被剥离
+// Fences inside CDATA should not be stripped
 func TestStripFencedCodeBlocks_FenceInsideCDATA(t *testing.T) {
 	text := "<tool_calls><invoke name=\"write\">\n<parameter name=\"content\"><![CDATA[\n\x60\x60\x60python\nprint('hello')\n\x60\x60\x60\n]]></parameter>\n</invoke></tool_calls>"
 	got := stripFencedCodeBlocks(text)
@@ -47,7 +47,7 @@ func TestStripFencedCodeBlocks_FenceInsideCDATA(t *testing.T) {
 	}
 }
 
-// 连续多个围栏
+// Multiple consecutive fences
 func TestStripFencedCodeBlocks_MultipleFences(t *testing.T) {
 	text := "Before\n\x60\x60\x60\nfence1\n\x60\x60\x60\nMiddle\n\x60\x60\x60\nfence2\n\x60\x60\x60\nAfter"
 	got := stripFencedCodeBlocks(text)
@@ -56,7 +56,7 @@ func TestStripFencedCodeBlocks_MultipleFences(t *testing.T) {
 	}
 }
 
-// 围栏包含内嵌 ``` 行但没有独立成行
+// Fence contains inline backticks but not on its own line
 func TestStripFencedCodeBlocks_InlineBackticksNotFence(t *testing.T) {
 	text := "Before\n\x60\x60\x60go\nfmt.Println(\x60\x60\x60hello\x60\x60\x60)\n\x60\x60\x60\nAfter"
 	got := stripFencedCodeBlocks(text)
@@ -66,10 +66,10 @@ func TestStripFencedCodeBlocks_InlineBackticksNotFence(t *testing.T) {
 }
 
 func TestParseToolCalls_IgnoresMarkdownDocumentationExamples(t *testing.T) {
-	text := "解析器支持多种工具调用格式。\n\n" +
-		"入口函数 `ParseToolCalls(text, availableToolNames)` 会返回调用列表。\n\n" +
-		"核心流程会解析 XML 格式的 `<tool_calls>` / `<invoke>` 标记。\n\n" +
-		"### 标准 XML 结构\n" +
+	text := "The parser supports multiple tool call formats.\n\n" +
+		"The entry function `ParseToolCalls(text, availableToolNames)` returns a list of calls.\n\n" +
+		"The core process parses XML-formatted `<tool_calls>` / `<invoke>` tags.\n\n" +
+		"### Standard XML Structure\n" +
 		"```xml\n" +
 		"<tool_calls>\n" +
 		"  <invoke name=\"read_file\">\n" +
@@ -77,7 +77,7 @@ func TestParseToolCalls_IgnoresMarkdownDocumentationExamples(t *testing.T) {
 		"  </invoke>\n" +
 		"</tool_calls>\n" +
 		"```\n\n" +
-		"DSML 风格形如 `<invoke name=\"tool\">...</invoke>`，也可能提到 `<tool_calls>` 包裹。\n"
+		"DSML style is like `<invoke name=\"tool\">...</invoke>`, and may mention `<tool_calls>` wrapper.\n"
 
 	got := ParseToolCallsDetailed(text, []string{"read_file"})
 	if len(got.Calls) != 0 {
@@ -86,7 +86,7 @@ func TestParseToolCalls_IgnoresMarkdownDocumentationExamples(t *testing.T) {
 }
 
 func TestParseToolCalls_IgnoresInlineMarkdownToolCallExample(t *testing.T) {
-	text := "示例：`<tool_calls><invoke name=\"read_file\"><parameter name=\"path\">README.md</parameter></invoke></tool_calls>`"
+	text := "Example: `<tool_calls><invoke name=\"read_file\"><parameter name=\"path\">README.md</parameter></invoke></tool_calls>`"
 
 	got := ParseToolCallsDetailed(text, []string{"read_file"})
 	if len(got.Calls) != 0 {

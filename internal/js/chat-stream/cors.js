@@ -5,7 +5,6 @@ const DEFAULT_CORS_ALLOW_HEADERS = [
   'Authorization',
   'X-API-Key',
   'X-Ds2-Target-Account',
-  'X-Ds2-Source',
   'X-Vercel-Protection-Bypass',
   'X-Goog-Api-Key',
   'Anthropic-Version',

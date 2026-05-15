@@ -542,8 +542,8 @@ function hasContentFilterStatusValue(v) {
 }
 
 function extractAccumulatedTokenUsage(chunk) {
-  // 临时策略：忽略上游 usage 字段（accumulated_token_usage / token_usage），
-  // 统一使用内部估算计数，避免上下文累计口径误差。
+  // Temporary strategy: ignore upstream usage fields (accumulated_token_usage / token_usage),
+  // use internal estimation to avoid context accumulation mismatch.
   void chunk;
   return { prompt: 0, output: 0 };
 }

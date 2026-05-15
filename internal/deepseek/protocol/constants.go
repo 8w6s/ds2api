@@ -100,7 +100,7 @@ func normalizeClientConstants(in clientConstants) clientConstants {
 		in.AndroidAPILevel = "35"
 	}
 	if in.Locale == "" {
-		in.Locale = "zh_CN"
+		in.Locale = "en_US"
 	}
 	return in
 }

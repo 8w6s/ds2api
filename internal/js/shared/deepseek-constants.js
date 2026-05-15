@@ -7,7 +7,7 @@ const DEFAULT_CLIENT = Object.freeze({
   name: 'DeepSeek',
   platform: 'android',
   androidApiLevel: '35',
-  locale: 'zh_CN',
+  locale: 'en_US',
 });
 
 const DEFAULT_BASE_HEADERS = Object.freeze({
