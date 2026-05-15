@@ -1,73 +1,45 @@
-version: "2"
-
 run:
+  timeout: 5m
   tests: true
+  skip-dirs:
+    - .tmp
+    - third_party
+    - builtin
+    - examples
+    - vendor
+    - webui/node_modules
 
 linters:
-  default: standard
   enable:
     - errcheck
     - govet
     - ineffassign
     - staticcheck
     - unused
-  settings:
-    dupl:
-      threshold: 100
-    goconst:
-      min-len: 2
-      min-occurrences: 2
-    gocritic:
-      enabled-tags:
-        - diagnostic
-        - experimental
-        - opinionated
-        - performance
-        - style
-      disabled-checks:
-        - wrapperFunc
-        - rangeValCopy
-        - hugeParam
-    gocyclo:
-      min-complexity: 15
-    lll:
-      line-length: 140
-    misspell:
-      locale: US
-    nakedret:
-      max-func-lines: 30
-    prealloc:
-      simple: true
-      range-loops: true
-      for-loops: false
-  exclusions:
-    generated: lax
+    - gofmt
+    - goimports
+    - misspell
+    - revive
+
+linters-settings:
+  govet:
+    check-shadowing: true
+  gofmt:
+    simplify: true
+  goimports:
+    local-prefixes: neutronapi
+  misspell:
+    locale: US
+  revive:
     rules:
-      - path: (.+)\.go$
-        text: "ST1000: at least one file in a package should have a package comment"
-    paths:
-      - third_party$
-      - builtin$
-      - examples$
-      - vendor$
-      - webui/node_modules$
+      - name: package-comments
+        disabled: true
 
 issues:
+  exclude-use-default: false
   max-issues-per-linter: 0
   max-same-issues: 0
-
-formatters:
-  enable:
-    - gofmt
-  settings:
-    goimports:
-      local-prefixes:
-        - neutronapi
-  exclusions:
-    generated: lax
-    paths:
-      - third_party$
-      - builtin$
-      - examples$
-      - vendor$
-      - webui/node_modules$
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - errcheck
