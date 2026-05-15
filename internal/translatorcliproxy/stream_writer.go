@@ -82,19 +82,18 @@ func (w *OpenAIStreamTranslatorWriter) Write(p []byte) (int, error) {
 		}
 		usage, hasUsage := extractOpenAIUsage(trimmed)
 		chunks := sdktranslator.TranslateStream(context.Background(), sdktranslator.FormatOpenAI, w.target, w.model, w.originalReq, w.translatedReq, trimmed, &w.param)
-		if hasUsage {
-			for i := range chunks {
-				chunks[i] = injectStreamUsageMetadata(chunks[i], w.target, usage)
-			}
-		}
 		for i := range chunks {
-			if len(chunks[i]) == 0 {
+			chunkBytes := []byte(chunks[i])
+			if hasUsage {
+				chunkBytes = injectStreamUsageMetadata(chunkBytes, w.target, usage)
+			}
+			if len(chunkBytes) == 0 {
 				continue
 			}
-			if _, err := w.dst.Write(chunks[i]); err != nil {
+			if _, err := w.dst.Write(chunkBytes); err != nil {
 				return len(p), err
 			}
-			if !bytes.HasSuffix(chunks[i], []byte("\n")) {
+			if !bytes.HasSuffix(chunkBytes, []byte("\n")) {
 				if _, err := w.dst.Write([]byte("\n")); err != nil {
 					return len(p), err
 				}
