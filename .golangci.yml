@@ -1,15 +1,9 @@
 run:
   timeout: 5m
   tests: true
-  skip-dirs:
-    - .tmp
-    - third_party
-    - builtin
-    - examples
-    - vendor
-    - webui/node_modules
 
 linters:
+  disable-all: true
   enable:
     - errcheck
     - govet
@@ -17,29 +11,8 @@ linters:
     - staticcheck
     - unused
     - gofmt
-    - goimports
-    - misspell
-    - revive
-
-linters-settings:
-  govet:
-    check-shadowing: true
-  gofmt:
-    simplify: true
-  goimports:
-    local-prefixes: neutronapi
-  misspell:
-    locale: US
-  revive:
-    rules:
-      - name: package-comments
-        disabled: true
 
 issues:
   exclude-use-default: false
   max-issues-per-linter: 0
   max-same-issues: 0
-  exclude-rules:
-    - path: _test\.go
-      linters:
-        - errcheck

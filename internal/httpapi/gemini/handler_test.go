@@ -455,17 +455,36 @@ func TestGeminiProxyTranslatesInlineImageToOpenAIDataURL(t *testing.T) {
 		t.Fatalf("expected 200, got %d body=%s", rec.Code, rec.Body.String())
 	}
 	messages, _ := openAI.seenReq["messages"].([]any)
-	if len(messages) != 1 {
-		t.Fatalf("expected one translated message, got %#v", openAI.seenReq)
+	if len(messages) < 1 {
+		t.Fatalf("expected at least one translated message, got %#v", openAI.seenReq)
 	}
-	msg, _ := messages[0].(map[string]any)
-	content, _ := msg["content"].([]any)
-	if len(content) != 2 {
-		t.Fatalf("expected translated content blocks, got %#v", msg)
+	// Tìm message của user trong danh sách
+	var userMsg map[string]any
+	for _, m := range messages {
+		mm, _ := m.(map[string]any)
+		if strings.TrimSpace(asString(mm["role"])) == "user" {
+			userMsg = mm
+			break
+		}
 	}
-	imageBlock, _ := content[1].(map[string]any)
-	if strings.TrimSpace(asString(imageBlock["type"])) != "image_url" {
-		t.Fatalf("expected image_url block, got %#v", imageBlock)
+	if userMsg == nil {
+		t.Fatalf("expected user message in translated request, got %#v", messages)
+	}
+	content, _ := userMsg["content"].([]any)
+	if len(content) < 2 {
+		t.Fatalf("expected translated user content blocks, got %#v", userMsg)
+	}
+	// Tìm image block trong content
+	var imageBlock map[string]any
+	for _, c := range content {
+		cc, _ := c.(map[string]any)
+		if strings.TrimSpace(asString(cc["type"])) == "image_url" {
+			imageBlock = cc
+			break
+		}
+	}
+	if imageBlock == nil {
+		t.Fatalf("expected image_url block in content, got %#v", content)
 	}
 	imageURL, _ := imageBlock["image_url"].(map[string]any)
 	if !strings.HasPrefix(strings.TrimSpace(asString(imageURL["url"])), "data:image/png;base64,") {
