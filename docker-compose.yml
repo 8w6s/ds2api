@@ -1,6 +1,6 @@
 services:
   neutronapi:
-    image: ghcr.io/NeutronAPI Team/neutronapi:latest
+    image: ghcr.io/8w6s/neutronapi:latest
     container_name: neutronapi
     restart: always
     env_file:
