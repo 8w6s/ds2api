@@ -4,12 +4,12 @@
 
 # NeutronAPI
 
-[![License](https://img.shields.io/github/license/NeutronAPI Team/neutronapi.svg)](LICENSE)
-![Stars](https://img.shields.io/github/stars/NeutronAPI Team/neutronapi.svg)
-![Forks](https://img.shields.io/github/forks/NeutronAPI Team/neutronapi.svg)
-[![Release](https://img.shields.io/github/v/release/NeutronAPI Team/neutronapi?display_name=tag)](https://github.com/NeutronAPI Team/neutronapi/releases)
+[![License](https://img.shields.io/github/license/8w6s/ds2api.svg)](LICENSE)
+![Stars](https://img.shields.io/github/stars/8w6s/ds2api.svg)
+![Forks](https://img.shields.io/github/forks/8w6s/ds2api.svg)
+[![Release](https://img.shields.io/github/v/release/8w6s/ds2api?display_name=tag)](https://github.com/8w6s/ds2api/releases)
 [![Docker](https://img.shields.io/badge/docker-ready-blue.svg)](docs/DEPLOY.md)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/NeutronAPI Team/neutronapi)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/8w6s/ds2api)
 
 NeutronAPI converts DeepSeek Web chat capability into OpenAI-compatible, Claude-compatible, and Gemini-compatible APIs. The core backend is Go-based, with a small Node Runtime bridge used for Vercel streaming, and the React WebUI admin panel lives in `webui/` (build output auto-generated to `static/admin` during deployment).
 
@@ -17,11 +17,11 @@ Documentation entry: [Docs Index](docs/README.md) / [Architecture](docs/ARCHITEC
 
 ## Star History
 
-<a href="https://www.star-history.com/?repos=NeutronAPI Team%2Fneutronapi&type=date&legend=top-left">
+<a href="https://www.star-history.com/?repos=NeutronAPI-Team%2Fneutronapi&type=date&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=NeutronAPI Team/neutronapi&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=NeutronAPI Team/neutronapi&type=date&theme=dark&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=NeutronAPI Team/neutronapi&type=date&legend=top-left" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=8w6s/ds2api&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=8w6s/ds2api&type=date&theme=dark&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=8w6s/ds2api&type=date&legend=top-left" />
  </picture>
 </a>
 
@@ -229,7 +229,7 @@ cp config.example.json config.json
 
 ```bash
 # Pull prebuilt image
-docker pull ghcr.io/NeutronAPI Team/neutronapi:latest
+docker pull ghcr.io/8w6s/ds2api:latest
 
 # Prepare env file and config file
 cp .env.example .env
@@ -239,7 +239,7 @@ cp config.example.json config.json
 docker-compose up -d
 ```
 
-The default `docker-compose.yml` uses `ghcr.io/NeutronAPI Team/neutronapi:latest` and maps host port `6011` to container port `5001`. If you want `5001` exposed directly, set `NEUTRON_HOST_PORT=5001` (or adjust the `ports` mapping).
+The default `docker-compose.yml` uses `ghcr.io/8w6s/ds2api:latest` and maps host port `6011` to container port `5001`. If you want `5001` exposed directly, set `NEUTRON_HOST_PORT=5001` (or adjust the `ports` mapping).
 It also mounts `./config.json` to `/data/config.json` and sets `NEUTRON_CONFIG_PATH=/data/config.json` by default, which avoids runtime token persistence failures caused by read-only `/app`.
 
 Rebuild after updates: `docker-compose up -d --build`
@@ -282,7 +282,7 @@ For detailed deployment instructions, see the [Deployment Guide](docs/DEPLOY.md)
 
 ```bash
 # 1. Clone
-git clone https://github.com/NeutronAPI Team/neutronapi.git
+git clone https://github.com/8w6s/ds2api.git
 cd neutronapi
 
 # 2. Configure
@@ -418,7 +418,7 @@ Workflow: `.github/workflows/release-artifacts.yml`
 
 - **Trigger**: by default only on GitHub Release `published`; you can also run it manually via `workflow_dispatch` and pass `release_tag` to rerun / backfill
 - **Outputs**: multi-platform binary archives (`linux/amd64`, `linux/arm64`, `linux/armv7`, `darwin/amd64`, `darwin/arm64`, `windows/amd64`, `windows/arm64`), Linux Docker image export tarballs, and `sha256sums.txt`
-- **Container publishing**: GHCR only (`ghcr.io/NeutronAPI Team/neutronapi`)
+- **Container publishing**: GHCR only (`ghcr.io/8w6s/ds2api`)
 - **Each binary archive includes**: the `neutronapi` executable, `static/admin`, `config.example.json`, `.env.example`, `README.MD`, and `LICENSE`
 
 ## Disclaimer

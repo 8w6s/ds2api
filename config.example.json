@@ -1,6 +1,6 @@
 {
   "_comment": "NeutronAPI configuration example - copy to config.json for use",
-  "_doc": "Detailed documentation: https://github.com/NeutronAPI Team/neutronapi",
+  "_doc": "Detailed documentation: https://github.com/8w6s/ds2api",
   "keys": [
     "your-api-key-1",
     "your-api-key-2"

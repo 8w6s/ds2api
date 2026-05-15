@@ -114,7 +114,7 @@ const LandingPage = ({ onEnter }) => {
                         <span>📡</span> {t('landing.apiStatus')}
                     </a>
                     <a
-                        href="https://github.com/NeutronAPI Team/neutronapi"
+                        href="https://github.com/8w6s/ds2api"
                         target="_blank"
                         className="glass-card text-white px-8 py-3 rounded-xl font-semibold transition-all flex items-center gap-2"
                     >

@@ -9,7 +9,7 @@ import (
 	"neutronapi/internal/version"
 )
 
-const latestReleaseAPI = "https://api.github.com/repos/NeutronAPI Team/neutronapi/releases/latest"
+const latestReleaseAPI = "https://api.github.com/repos/8w6s/ds2api/releases/latest"
 
 type latestReleasePayload struct {
 	TagName     string `json:"tag_name"`

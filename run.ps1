@@ -1,5 +1,5 @@
 # --- NeutronAPI One-Click Runner (Windows) ---
-# Project: https://github.com/NeutronAPI Team/neutronapi
+# Project: https://github.com/8w6s/ds2api
 
 $Host.UI.RawUI.WindowTitle = "NeutronAPI - Easy Runner"
 

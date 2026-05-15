@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # --- NeutronAPI One-Click Runner (Linux/macOS) ---
-# Project: https://github.com/NeutronAPI Team/neutronapi
+# Project: https://github.com/8w6s/ds2api
 
 # Màu sắc cho nó xịn xò
 CYAN='\033[0;36m'

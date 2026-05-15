@@ -204,7 +204,7 @@ export default function DashboardShell({ token, onLogout, config, fetchConfig, s
                             {versionInfo?.has_update && (
                                 <a
                                     className="inline-flex mt-1 text-[10px] text-amber-500 hover:text-amber-400"
-                                    href={versionInfo?.release_url || 'https://github.com/NeutronAPI Team/neutronapi/releases/latest'}
+                                    href={versionInfo?.release_url || 'https://github.com/8w6s/ds2api/releases/latest'}
                                     target="_blank"
                                     rel="noreferrer"
                                 >
