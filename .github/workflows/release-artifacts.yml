@@ -21,7 +21,7 @@ concurrency:
 
 env:
   GO_VERSION: "1.24.x"
-  GOTOOLCHAIN: "auto"
+  GOTOOLCHAIN: "local"
   NODE_VERSION: "24"
 
 jobs:

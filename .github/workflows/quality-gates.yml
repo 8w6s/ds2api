@@ -17,7 +17,7 @@ concurrency:
 env:
   GO_VERSION: "1.24.x"
   NODE_VERSION: "24"
-  GOTOOLCHAIN: "auto"
+  GOTOOLCHAIN: "local"
 
 jobs:
   lint-and-refactor:
