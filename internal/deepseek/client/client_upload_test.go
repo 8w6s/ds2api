@@ -2,13 +2,13 @@ package client
 
 import (
 	"context"
-	dsprotocol "neutronapi/internal/deepseek/protocol"
 	"encoding/base64"
 	"encoding/hex"
 	"encoding/json"
 	"errors"
 	"io"
 	"net/http"
+	dsprotocol "neutronapi/internal/deepseek/protocol"
 	"strings"
 	"testing"
 	"time"

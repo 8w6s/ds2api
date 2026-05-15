@@ -168,7 +168,7 @@ func (r *Runner) startServer(ctx context.Context) error {
 	cmd.Stdout = logFd
 	cmd.Stderr = logFd
 	cmd.Env = prepareServerEnv(os.Environ(), map[string]string{
-		"PORT":                    strconv.Itoa(port),
+		"PORT":                     strconv.Itoa(port),
 		"NEUTRON_CONFIG_PATH":      r.configCopyPath,
 		"NEUTRON_AUTO_BUILD_WEBUI": "false",
 		"NEUTRON_CONFIG_JSON":      "",

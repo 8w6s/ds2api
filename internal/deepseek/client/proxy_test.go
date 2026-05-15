@@ -2,8 +2,8 @@ package client
 
 import (
 	"context"
-	dsprotocol "neutronapi/internal/deepseek/protocol"
 	"net/http"
+	dsprotocol "neutronapi/internal/deepseek/protocol"
 	"strings"
 	"testing"
 )

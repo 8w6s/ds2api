@@ -4,12 +4,12 @@ import (
 	"bufio"
 	"bytes"
 	"context"
-	dsprotocol "neutronapi/internal/deepseek/protocol"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
 	"net/http"
+	dsprotocol "neutronapi/internal/deepseek/protocol"
 	"strings"
 
 	"neutronapi/internal/auth"

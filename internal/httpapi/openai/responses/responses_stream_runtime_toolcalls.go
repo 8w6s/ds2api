@@ -1,9 +1,9 @@
 package responses
 
 import (
+	"encoding/json"
 	"neutronapi/internal/toolcall"
 	"neutronapi/internal/toolstream"
-	"encoding/json"
 	"strings"
 
 	openaifmt "neutronapi/internal/format/openai"

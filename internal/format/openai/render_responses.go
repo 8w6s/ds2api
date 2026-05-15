@@ -1,8 +1,8 @@
 package openai
 
 import (
-	"neutronapi/internal/toolcall"
 	"encoding/json"
+	"neutronapi/internal/toolcall"
 	"strings"
 	"time"
 

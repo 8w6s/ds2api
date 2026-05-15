@@ -1,8 +1,8 @@
 package shared
 
 import (
-	"neutronapi/internal/toolcall"
 	"encoding/json"
+	"neutronapi/internal/toolcall"
 	"strings"
 
 	"github.com/google/uuid"

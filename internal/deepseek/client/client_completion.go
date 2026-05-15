@@ -3,9 +3,9 @@ package client
 import (
 	"bytes"
 	"context"
-	dsprotocol "neutronapi/internal/deepseek/protocol"
 	"encoding/json"
 	"net/http"
+	dsprotocol "neutronapi/internal/deepseek/protocol"
 
 	"neutronapi/internal/auth"
 	"neutronapi/internal/config"

@@ -1,11 +1,11 @@
 package claude
 
 import (
-	"neutronapi/internal/sse"
 	"encoding/json"
 	"io"
 	"net/http"
 	"net/http/httptest"
+	"neutronapi/internal/sse"
 	"strings"
 	"testing"
 	"time"

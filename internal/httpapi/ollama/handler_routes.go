@@ -1,12 +1,12 @@
 package ollama
 
 import (
-	"neutronapi/internal/config"
-	"neutronapi/internal/util"
 	"encoding/json"
 	"github.com/go-chi/chi/v5"
 	"log/slog"
 	"net/http"
+	"neutronapi/internal/config"
+	"neutronapi/internal/util"
 )
 
 var WriteJSON = util.WriteJSON

@@ -2,11 +2,11 @@ package client
 
 import (
 	"context"
-	dsprotocol "neutronapi/internal/deepseek/protocol"
 	"errors"
 	"fmt"
 	"net/http"
 	"net/url"
+	dsprotocol "neutronapi/internal/deepseek/protocol"
 	"strings"
 
 	"neutronapi/internal/auth"

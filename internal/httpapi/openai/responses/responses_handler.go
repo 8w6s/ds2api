@@ -1,10 +1,10 @@
 package responses
 
 import (
-	"neutronapi/internal/toolcall"
 	"encoding/json"
 	"io"
 	"net/http"
+	"neutronapi/internal/toolcall"
 	"strings"
 	"time"
 

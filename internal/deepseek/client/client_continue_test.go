@@ -3,10 +3,10 @@ package client
 import (
 	"bytes"
 	"context"
-	dsprotocol "neutronapi/internal/deepseek/protocol"
 	"errors"
 	"io"
 	"net/http"
+	dsprotocol "neutronapi/internal/deepseek/protocol"
 	"strings"
 	"sync/atomic"
 	"testing"

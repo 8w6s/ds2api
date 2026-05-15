@@ -1,9 +1,9 @@
 package claude
 
 import (
+	"fmt"
 	"neutronapi/internal/assistantturn"
 	"neutronapi/internal/toolcall"
-	"fmt"
 	"time"
 
 	"neutronapi/internal/prompt"

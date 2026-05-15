@@ -1,8 +1,8 @@
 package responses
 
 import (
-	"neutronapi/internal/toolcall"
 	"encoding/json"
+	"neutronapi/internal/toolcall"
 	"sort"
 	"strings"
 
