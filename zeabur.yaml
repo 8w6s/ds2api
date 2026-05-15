@@ -13,7 +13,7 @@ spec:
     # NeutronAPI (Zeabur)
 
     ## Runtime baseline
-    - Go: 1.25
+    - Go: 1.24
 
     ## After deployment
     - Admin panel: `/admin`

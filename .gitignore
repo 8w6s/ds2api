@@ -37,8 +37,10 @@ static/admin/
 internal/webui/assets/admin/
 
 # Go compiled binaries
-neutronapi
-neutronapi-tests
+/neutronapi
+/neutronapi.exe
+/neutronapi-tests
+/neutronapi-tests.exe
 
 # Environment
 .env.local

@@ -15,8 +15,9 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  GO_VERSION: "1.25.x"
+  GO_VERSION: "1.24.x"
   NODE_VERSION: "24"
+  GOTOOLCHAIN: "auto"
 
 jobs:
   lint-and-refactor:
